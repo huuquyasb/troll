@@ -1,0 +1,10 @@
+<div class="content" scrollable (scrollPosition)="scrollHandler($event)">
+  <p class="tag is-warning" *ngIf="page.done | async">I ran out of boats!</p>
+ <app-loading-spinner  *ngIf="page.loading | async"> Loading...</app-loading-spinner>
+
+  <div *ngFor="let boat of page.data | async" style="height:500px;">
+    <h1>Built in {{ boat.title }}</h1>
+    <!-- <img [src]="boat.url"> -->
+  </div>
+  <button (click)="scrollHandler('bottom')" class="btn btn-info">Load more</button>
+</div>

@@ -1,0 +1,86 @@
+<div class="container">
+  <div *ngIf="auth.authState | async; let user; else showLoginnow"></div>
+  <ng-template #showLoginnow>
+    <div class="omb_login">
+      <h3 class="omb_authTitle">Login or
+        <a routerLink="/register">Sign up</a>
+      </h3>
+
+      <div class="row omb_row-sm-offset-3 omb_socialButtons">
+        <div class="col-xs-4 col-sm-2">
+          <a href="javascript:void(0)" (click)="auth.facebookLogin()" class="btn btn-lg btn-block omb_btn-facebook">
+            <i class="fa fa-facebook visible-xs"></i>
+            <span class="hidden-xs">Facebook</span>
+          </a>
+        </div>
+        <div class="col-xs-4 col-sm-2">
+          <a href="javascript:void(0)" (click)="auth.twitterLogin()" class="btn btn-lg btn-block omb_btn-twitter">
+            <i class="fa fa-twitter visible-xs"></i>
+            <span class="hidden-xs">Twitter</span>
+          </a>
+        </div>
+        <div class="col-xs-4 col-sm-2">
+          <a href="javascript:void(0)" (click)="auth.googleLogin()" class="btn btn-lg btn-block omb_btn-google">
+            <i class="fa fa-google-plus visible-xs"></i>
+            <span class="hidden-xs">Google</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="row omb_row-sm-offset-3 omb_loginOr">
+        <div class="col-xs-12 col-sm-6">
+          <hr class="omb_hrOr">
+          <span class="omb_spanOr">or</span>
+        </div>
+      </div>
+      <form (ngSubmit)="loginEmailPassword(formLogin);" class="omb_loginForm" #formLogin="ngForm" autocomplete="off">
+        <div class="row omb_row-sm-offset-3">
+          <div class="col-xs-12 col-sm-6">
+
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-user"></i>
+              </span>
+              <input type="text" class="form-control" ngModel #txtUserName="ngModel" name="username" placeholder="Email address" email
+                required>
+            </div>
+            <span class="help-block" *ngIf="txtUserName.touched && txtUserName.errors?.required">
+              Email is required.
+            </span>
+            <span class="help-block" *ngIf="txtUserName.touched && txtUserName.errors?.email">
+              Email is invalid.
+            </span>
+
+            <br/>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-lock"></i>
+              </span>
+              <input type="password" class="form-control" ngModel #txtPass="ngModel" name="password" placeholder="Password" required>
+            </div>
+            <span class="help-block" *ngIf="txtPass.touched && txtPass.errors?.required">
+              Password is required.
+            </span>
+            <span class="help-block" *ngIf="error" >{{ error }}</span>
+            <br/>
+            <br/>
+            <button [disabled]="formLogin.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+          </div>
+        </div>
+        <div class="row omb_row-sm-offset-3 row_bottom_login">
+          <div class="col-xs-12 col-sm-3">
+            <label class="checkbox">
+              <input type="checkbox" value="remember-me" [(ngModel)]="remember_me" name="remember_me">Remember Me
+            </label>
+          </div>
+          <div class="col-xs-12 col-sm-3">
+            <p class="omb_forgotPwd">
+              <a routerLink="/forgot-password">Forgot password?</a>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,101 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Home</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="#">Library</a>
+  </li>
+  <li class="breadcrumb-item active">Data</li>
+</ol>
+
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-12">
+    <div class="btn-group-vertical" data-toggle="buttons">
+      <button type="button" class="btn btn-primary">CategoryList</button>
+      <button type="button" class="btn btn-primary">PostList</button>
+      <button type="button" class="btn btn-primary">UsersList</button>
+      <button type="button" class="btn btn-primary">ContactList</button>
+      <button type="button" class="btn btn-primary">Button</button>
+      <button type="button" class="btn btn-primary">Button</button>
+    </div>
+  </div>
+  <div class="col-md-10 col-sm-9 col-xs-12">
+    <div class="jumbotron">
+      <p class="lead">
+        <button class="btn btn-primary" (click)="isShowForm = true" *ngIf="!isShowForm" >Add category</button>
+      </p>
+      <div class="add_category" *ngIf="isShowForm">
+        <form>
+          <fieldset>
+            <legend>Create Category</legend>
+            <div class="form-group">              
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=".....">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" checked="">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Check this custom checkbox</span>
+                </label>               
+              </div>
+            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="isShowForm = false">Cancel</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="content_category">
+        <table class="table table-hover">
+          <thead>
+            <tr class="table-success">
+              <th scope="col">Name</th>
+              <th scope="col">Slug</th>
+              <th scope="col">Date-created</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-active">
+              <th scope="row">Hai Hoai linh</th>
+              <td>Hai-hoai-linh</td>
+              <td>20-10-2020</td>
+              <td>
+                <span class="badge badge-pill badge-secondary">Close</span>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm">Edit</button>
+                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+            <tr class="table-active">
+              <th scope="row">Hai Hoai linh</th>
+              <td>Hai-hoai-linh</td>
+              <td>20-10-2020</td>
+              <td>
+                <span class="badge badge-pill badge-success">Open</span>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm">Edit</button>
+                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+            <tr class="table-active">
+              <th scope="row">Hai Hoai linh</th>
+              <td>Hai-hoai-linh</td>
+              <td>20-10-2020</td>
+              <td>
+                <span class="badge badge-pill badge-success">Open</span>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm">Edit</button>
+                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
